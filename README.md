@@ -1,6 +1,6 @@
 # Gerador de QRcode
 
-<img src="assets/img/QRCode" alt="QRCode" style="width: 600px; height: 500px;">
+<img src="assets/img/QRCode.png" alt="QRCode" style="width: 600px; height: 500px;">
 
 ## Descrição
 
