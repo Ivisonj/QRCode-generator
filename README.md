@@ -9,6 +9,7 @@ Este repositório contém um gerador de QRcode simples, feito com VueJS. O objet
 ## Tecnologias Utilizadas
 
 - JavaScript
+- HTML
 - CSS
 - Vue
 
