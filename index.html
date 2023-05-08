@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="js/vue.min.js"></script>
+    <script src="js/qrious.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Gerador de QRCode</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ title }}</h1>
+        <div>
+            <input type="text" size="25" placeholder="Digite para gerar..."
+                :value="text" @input="onData"
+                >
+                <!-- no momento que eu começar a alterar o valor ele vai monitorar isso 
+                através do evento input, vai chamar o onData  e o onData vai alterar o texto 
+             e um novo QRcode vai ser gerado-->
+
+             <!-- com v-model="text" não precisaria das funlçoes computed e methoths  -->
+
+
+        </div>
+        <div v-if="text" class="output">
+            <img :src="newQRCode" alt="QRCode">
+        </div>
+    </div>
+
+    <script>
+        // ...
+        new Vue({
+            el: '#app', 
+            data: {
+                title: 'Gerador QECode',
+                text: 'http://www.cod3r.com.br',
+                qrcode: new QRious({ size: 300 })
+            }, 
+            computed: {
+                // pra cada texto gerado ele vai gerar um QRcode
+                newQRCode() {
+                    this.qrcode.value = this.text
+                    return this.qrcode.toDataURL()
+                }
+            }, 
+            methods: {
+                onData(event) {
+                    this.text = event.target.value
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
